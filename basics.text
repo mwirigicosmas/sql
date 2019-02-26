@@ -1,9 +1,103 @@
 -- TO CREATE A DATABASE: CREATE DATABASE DATABASENAME;
-EG.
+    EG.
 
-CREATE DATABASE DATABASE1; OR create database database1;
+    CREATE DATABASE DATABASE1; OR create database database1;
 
 -- TO DELETE A DATABASE: DROP DATABASE DATABASENAME;
-EG.
+    EG.
 
-DROP DATABASE DATABASE1; 0R drop database database1;
+    DROP DATABASE DATABASE1; 0R drop database database1;
+
+-- TO CREATE A  TABEL: CREATE TABLE TABELNAME(specify the columns and the data types inside parenthisis);
+    EG.
+
+    // ACCESS A DATABASE FIRST BEFORE CREATING A TABLE EG DATABASE1.
+
+    CREATE TABLE customers(
+        id INT NOT NULL AUTO_INCREMENT, // means id is of type integer, can not be null and is increasing automatically
+        firstName VARCHAR(255), // means firstName is of type characters eg string and can have a maximum of 255 characters.
+        lastName VARCHAR(255),
+        email VARCHAR(255),
+        address VARCHAR(255),
+        city VARCHAR(255),
+        county VARCHAR(255),
+        phoneNumber VARCHAR(255),
+        PRIMARY KEY(id) // unique key that is attached to unique column like the id.
+    );
+
+-- TO INSERT DATA: INSERT INTO DATANAMEAREA() VALUES();
+    EG.
+
+    INSERT INTO customers (firstName, lastName, email, address, city, county,phoneNumber) VALUES
+    ('cosmas','mwirigi','mwirigicosmas@live.com','18331-00100','Nairobi','Nairobi','0715599794');
+
+-- TO UPDATE:
+    EG.
+
+    UPDATE customers
+    SET email = 'cosmasmwirigi@yahoo.com'
+    WHERE id = 3; // specifies the email address to update from the customer with id =3
+
+--TO DELETE:
+    EG.
+
+    DELETE FROM customers
+    WHERE id = 3; // specifies the customer to delete with id =3
+
+--TO ALTER THE TABLE:
+    EG. ADD columns
+
+    ALTER TABEL customers ADD Age INT(3);  // creates a new column named Age that is of type integer 3 characters long
+
+-- TO  CHANGE DATATYPE:
+    EG.
+
+    ALTER TABLE customers
+    MODIFY COLUMN phoneNumber INT (11); // modifies the column phoneNumber datatype from VARCHAR to integer 11 characters long
+
+--TO DELETE A COLUMN:
+    EG.
+
+    ALTER TABLE customers
+    DROP COLUMN address; // deletes the address column
+
+--TO SELECT DATA:
+    EG.
+
+    TO select all columns:
+        SELECT * FROM customers; use the artestic * to select all columns
+
+        TO select firstName, lastName and city:
+            SELECT firstName, lastName, city FROM customers; // selects firstName, lastName and city from customers.
+
+        To select a specific customer:
+            SELECT * FROM customers WHERE id =5; // selects the customer with id =5
+
+        TO select with order eg name alphabetically:
+            SELECT * FROM customers ORDER BY firstName; // selects the customers based on their firstName alphabetically.
+
+        TO select with order eg name descending:
+            SELECT * FROM customers ORDER BY firstName DESC; // selects the customers based on their firstName descending order
+
+        TO select with order eg name ascending:
+            SELECT * FROM customers ORDER BY firstName ASC; // selects the customers based on their firstName ascending order
+
+        To select city:
+            SELECT city FROM customers; // selects the city from customers
+
+        To select non duplicates eg city:
+            SELECT DISTINCT city FROM customers; // selects distinct city and avoids repetition if multiple customers are in same city.
+        
+        To select customers with age less than 35:
+            SELECT * FROM customers WHERE AGE <35; // selects customers with age <35
+        
+        To select customers with age greater than 35:
+            SELECT * FROM customers WHERE AGE >35; // selects customers with age > 35
+
+
+
+
+
+
+
+
